@@ -75,10 +75,11 @@
 ;; face
 (set-face-attribute 'default nil :height 151)
 
-;; no backups
+;; no backups and lock files
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 (setq auto-save-list-file-name nil)
+(setq create-lockfiles nil)
 
 ;; new line/spaces
 (setq require-final-newline t)
