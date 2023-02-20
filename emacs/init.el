@@ -98,3 +98,6 @@
 
 ;; disable js-find-symbol because the eglot
 (global-set-key [remap js-find-symbol] 'xref-find-definitions)
+
+;; auto pair brackets
+(electric-pair-mode t)
