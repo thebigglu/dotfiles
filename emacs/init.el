@@ -103,3 +103,6 @@
 
 ;; auto pair brackets
 (electric-pair-mode t)
+
+;; enable search count
+(setq isearch-lazy-count t)
