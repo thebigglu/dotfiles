@@ -106,3 +106,6 @@
 
 ;; enable search count
 (setq isearch-lazy-count t)
+
+;; enable column number
+(setq column-number-mode t)
