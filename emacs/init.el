@@ -73,7 +73,7 @@
 (setq backward-delete-char-untabify-method 'hungry)
 
 ;; face
-(set-face-attribute 'default nil :height 151)
+(set-frame-font "Hack 13" nil t)
 
 ;; no backups and lock files
 (setq auto-save-default nil)
