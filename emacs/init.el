@@ -93,6 +93,17 @@
 (setq require-final-newline t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; new line above/below of the cursor
+(global-set-key (kbd "<C-return>") (lambda ()
+  (interactive)
+  (end-of-line)
+  (newline-and-indent)))
+(global-set-key (kbd "<S-return>") (lambda ()
+  (interactive)
+  (previous-line)
+  (end-of-line)
+  (newline-and-indent)))
+
 ;; encoding
 (set-default-coding-systems 'utf-8)
 
