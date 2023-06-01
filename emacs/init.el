@@ -10,18 +10,10 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-(use-package doom-themes
-  :ensure t
+(use-package tron-legacy-theme
   :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-sourcerer t))
-
-(use-package nerd-icons)
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode t))
+  (setq tron-legacy-theme-vivid-cursor t)
+  (load-theme 'tron-legacy t))
 
 (use-package tree-sitter
   :config
@@ -32,6 +24,7 @@
 
 (use-package eglot
   :init
+  (setq eldoc-echo-area-use-multiline-p nil)
   (setq eglot-ignored-server-capabilities '(:hoverProvider :documentHighlightProvider))
   :hook
   ((js-mode typescript-mode) . eglot-ensure))
