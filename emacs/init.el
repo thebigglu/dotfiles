@@ -10,10 +10,18 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-(use-package tron-legacy-theme
+(use-package doom-themes
+  :ensure t
   :config
-  (setq tron-legacy-theme-vivid-cursor t)
-  (load-theme 'tron-legacy t))
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-sourcerer t))
+
+(use-package nerd-icons)
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode t))
 
 (use-package tree-sitter
   :config
