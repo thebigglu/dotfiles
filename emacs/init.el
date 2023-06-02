@@ -10,12 +10,6 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-(use-package vterm
-  :init
-  (setq vterm-kill-buffer-on-exit t)
-  (setq vterm-max-scrollback 100000)
-  (setq vterm-timer-delay 0.01))
-
 (use-package tron-legacy-theme
   :config
   (setq tron-legacy-theme-vivid-cursor t)
@@ -48,6 +42,23 @@
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
+
+(use-package vterm
+  :init
+  (setq vterm-always-compile-module t)
+  (setq vterm-kill-buffer-on-exit t)
+  (setq vterm-max-scrollback 100000)
+  (setq vterm-timer-delay 0.01)
+  :bind
+  ("C-x v r" . vterm-copy-mode))
+
+(use-package multi-vterm
+  :bind
+  ("C-x v v" . multi-vterm)
+  ("C-x v n" . multi-vterm-next)
+  ("C-x v p" . multi-vterm-prev)
+  ("C-x v d" . multi-vterm-dedicated-toggle)
+  ("C-x v j" . multi-vterm-project))
 
 (use-package typescript-mode)
 (use-package yaml-mode)
