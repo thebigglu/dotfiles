@@ -10,6 +10,12 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
+(use-package vterm
+  :init
+  (setq vterm-kill-buffer-on-exit t)
+  (setq vterm-max-scrollback 100000)
+  (setq vterm-timer-delay 0.01))
+
 (use-package tron-legacy-theme
   :config
   (setq tron-legacy-theme-vivid-cursor t)
