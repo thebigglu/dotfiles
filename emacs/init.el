@@ -50,15 +50,15 @@
   (setq vterm-max-scrollback 100000)
   (setq vterm-timer-delay 0.01)
   :bind
-  ("C-x v r" . vterm-copy-mode))
+  ("C-c v r" . vterm-copy-mode))
 
 (use-package multi-vterm
   :bind
-  ("C-x v v" . multi-vterm)
-  ("C-x v n" . multi-vterm-next)
-  ("C-x v p" . multi-vterm-prev)
-  ("C-x v d" . multi-vterm-dedicated-toggle)
-  ("C-x v j" . multi-vterm-project))
+  ("C-c v v" . multi-vterm)
+  ("C-c v n" . multi-vterm-next)
+  ("C-c v p" . multi-vterm-prev)
+  ("C-c v d" . multi-vterm-dedicated-toggle)
+  ("C-c v j" . multi-vterm-project))
 
 (use-package typescript-mode)
 (use-package yaml-mode)
