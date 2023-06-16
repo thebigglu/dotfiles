@@ -26,8 +26,7 @@
   :init
   (setq eldoc-echo-area-use-multiline-p nil)
   (setq eglot-ignored-server-capabilities '(:hoverProvider :documentHighlightProvider))
-  :hook
-  ((js-mode typescript-mode) . eglot-ensure))
+  :hook ((js-mode typescript-mode) . eglot-ensure))
 
 (use-package helm
   :init (helm-mode t)
@@ -37,8 +36,15 @@
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files))
 
+(defun use-eslint-from-node-modules ()
+  (let* ((root (locate-dominating-file (or (buffer-file-name) default-directory) "node_modules"))
+    (eslint (and root (expand-file-name "node_modules/.bin/eslint" root))))
+    (when (and eslint (file-executable-p eslint))
+      (setq-local flycheck-javascript-eslint-executable eslint))))
+
 (use-package flycheck
-  :init (global-flycheck-mode))
+  :init (global-flycheck-mode)
+  :hook (flycheck-mode . use-eslint-from-node-modules))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
@@ -49,8 +55,7 @@
   (setq vterm-kill-buffer-on-exit t)
   (setq vterm-max-scrollback 100000)
   (setq vterm-timer-delay 0.01)
-  :bind
-  ("C-c i r" . vterm-copy-mode))
+  :bind ("C-c i r" . vterm-copy-mode))
 
 (use-package multi-vterm
   :bind
