@@ -80,6 +80,10 @@
   :bind ("C-=" . er/expand-region))
 
 (setq require-final-newline t)
+(set-default-coding-systems 'utf-8)
+(delete-selection-mode t)
+(electric-pair-mode t)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; new line above/below of the cursor
@@ -92,12 +96,6 @@
   (previous-line)
   (end-of-line)
   (newline-and-indent)))
-
-(set-default-coding-systems 'utf-8)
-
-(delete-selection-mode t)
-
-(electric-pair-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Search                                                                   ;;
@@ -119,7 +117,7 @@
   (setq vterm-kill-buffer-on-exit t)
   (setq vterm-max-scrollback 100000)
   (setq vterm-timer-delay 0.01)
-  :bind ("C-c i r" . vterm-copy-mode))
+  :bind ("C-c r" . vterm-copy-mode))
 
 (use-package multi-vterm
   :bind
