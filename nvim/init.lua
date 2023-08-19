@@ -20,7 +20,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -34,14 +34,14 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+      "MunifTanjim/nui.nvim"
     }
   },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      "linrongbin16/lsp-progress.nvim",
+      "linrongbin16/lsp-progress.nvim"
     }
   },
   {
@@ -52,7 +52,7 @@ require("lazy").setup({
   },
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.x",
+    branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim"
     }
@@ -60,7 +60,7 @@ require("lazy").setup({
   "nvim-treesitter/nvim-treesitter",
   "windwp/nvim-autopairs",
   "terrortylor/nvim-comment",
-  "lewis6991/gitsigns.nvim",
+  "lewis6991/gitsigns.nvim"
 })
 
 vim.cmd.colorscheme("tokyonight-night")
@@ -80,7 +80,6 @@ require("nvim_comment").setup({
   operator_mapping = "<leader>c"
 })
 require("gitsigns").setup()
-
 
 vim.keymap.set('n', '<leader>E', ':Neotree float reveal<CR>')
 vim.keymap.set('n', '<leader>e', ':Neotree left reveal<CR>')
