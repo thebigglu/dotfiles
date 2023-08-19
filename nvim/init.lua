@@ -66,9 +66,6 @@ require("lazy").setup({
 vim.cmd.colorscheme("tokyonight-night")
 require("neo-tree").setup()
 require("lualine").setup()
-require("telescope").setup({
-  file_ignore_patterns = { "node_modules" }
-})
 require("nvim-treesitter.configs").setup({
   ensure_installed = { "javascript", "typescript", "lua" },
   sync_install = false,
