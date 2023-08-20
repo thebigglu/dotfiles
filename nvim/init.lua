@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
-vim.opt.clipboard = "unnamedplus"
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.linebreak = true
+vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.splitbelow = true
