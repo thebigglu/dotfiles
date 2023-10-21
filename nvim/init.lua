@@ -58,7 +58,6 @@ require("lazy").setup({
     }
   },
   "nvim-treesitter/nvim-treesitter",
-  "ludovicchabant/vim-gutentags",
   "windwp/nvim-autopairs",
   "terrortylor/nvim-comment",
   "lewis6991/gitsigns.nvim"
