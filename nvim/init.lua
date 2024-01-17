@@ -27,7 +27,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "folke/tokyonight.nvim",
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -63,7 +68,7 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim"
 })
 
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("moonfly")
 require("neo-tree").setup()
 require("lualine").setup()
 require("nvim-treesitter.configs").setup({
