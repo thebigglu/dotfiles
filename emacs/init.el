@@ -25,11 +25,15 @@
 (scroll-bar-mode   -1)
 (blink-cursor-mode -1)
 (set-default 'truncate-lines t)
+(add-to-list 'default-frame-alist '(undecorated . t))
+(add-to-list 'default-frame-alist '(internal-border-width . 7))
+(add-to-list 'default-frame-alist '(font . "Hack 13"))
 (setq use-dialog-box nil)
 (setq ring-bell-function 'ignore)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
-(setq frame-title-format "Emacs %b")
+(setq isearch-lazy-count t)
+(setq column-number-mode t)
 
 (use-package tron-legacy-theme
   :ensure t
@@ -37,18 +41,11 @@
   (setq tron-legacy-theme-vivid-cursor t)
   (load-theme 'tron-legacy t))
 
-(add-to-list 'default-frame-alist '(font . "Hack 13"))
-
-(setq isearch-lazy-count t)
-
-(setq column-number-mode t)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Global shortcuts                                                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key [remap list-buffers] 'ibuffer)
 (global-set-key (kbd "M-o") 'other-window)
-
 (global-set-key (kbd "M-i") 'imenu)
 
 ;; disable js-find-symbol because the eglot
@@ -86,7 +83,7 @@
   (newline-and-indent)))
 (global-set-key (kbd "<S-return>") (lambda ()
   (interactive)
-  (forward-line -1)
+  (previous-line)
   (end-of-line)
   (newline-and-indent)))
 
