@@ -14,16 +14,7 @@
 ;; Package management                                                       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
-(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t
-        use-package-expand-minimally t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UI                                                                       ;;
@@ -41,6 +32,7 @@
 (setq frame-title-format "Emacs %b")
 
 (use-package tron-legacy-theme
+  :ensure t
   :config
   (setq tron-legacy-theme-vivid-cursor t)
   (load-theme 'tron-legacy t))
@@ -77,6 +69,7 @@
 (setq create-lockfiles nil)
 
 (use-package expand-region
+  :ensure t
   :bind ("C-=" . er/expand-region))
 
 (setq require-final-newline t)
@@ -93,7 +86,7 @@
   (newline-and-indent)))
 (global-set-key (kbd "<S-return>") (lambda ()
   (interactive)
-  (previous-line)
+  (forward-line -1)
   (end-of-line)
   (newline-and-indent)))
 
@@ -101,6 +94,7 @@
 ;; Search                                                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package helm
+  :ensure t
   :init (helm-mode t)
   :demand
   :bind
@@ -112,6 +106,7 @@
 ;; Terminal                                                                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package vterm
+  :ensure t
   :init
   (setq vterm-always-compile-module t)
   (setq vterm-kill-buffer-on-exit t)
@@ -120,6 +115,7 @@
   :bind ("C-c r" . vterm-copy-mode))
 
 (use-package multi-vterm
+  :ensure t
   :bind
   ("C-c i j" . multi-vterm)
   ("C-c i n" . multi-vterm-next)
@@ -131,17 +127,19 @@
 ;; Programming                                                              ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package eglot
+  :ensure t
   :init
   (setq eldoc-echo-area-use-multiline-p nil)
   (setq eglot-ignored-server-capabilities '(:hoverProvider :documentHighlightProvider))
   :hook ((js-mode typescript-mode) . eglot-ensure))
 
 (use-package tree-sitter
+  :ensure t
   :config
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-(use-package tree-sitter-langs)
+(use-package tree-sitter-langs :ensure t)
 
 (defun use-eslint-from-node-modules ()
   (let* ((root (locate-dominating-file (or (buffer-file-name) default-directory) "node_modules"))
@@ -150,15 +148,16 @@
       (setq-local flycheck-javascript-eslint-executable eslint))))
 
 (use-package flycheck
+  :ensure t
   :init (global-flycheck-mode)
   :hook (flycheck-mode . use-eslint-from-node-modules))
 
-(use-package typescript-mode)
-(use-package yaml-mode)
-(use-package json-mode)
-(use-package dockerfile-mode)
+(use-package typescript-mode :ensure t)
+(use-package yaml-mode :ensure t)
+(use-package json-mode :ensure t)
+(use-package dockerfile-mode :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; VCS                                                                      ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package magit)
+(use-package magit :ensure t)
