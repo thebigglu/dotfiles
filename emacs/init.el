@@ -47,6 +47,11 @@
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "M-i") 'imenu)
 
+(autoload 'View-scroll-half-page-forward "view")
+(autoload 'View-scroll-half-page-backward "view")
+(keymap-global-set "C-v" #'View-scroll-half-page-forward)
+(keymap-global-set "M-v" #'View-scroll-half-page-backward)
+
 ;; disable js-find-symbol because the eglot
 (global-set-key [remap js-find-symbol] 'xref-find-definitions)
 
