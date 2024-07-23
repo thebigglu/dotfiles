@@ -35,11 +35,10 @@
 (setq isearch-lazy-count t)
 (setq column-number-mode t)
 
-(use-package tron-legacy-theme
+(use-package modus-themes
   :ensure t
   :config
-  (setq tron-legacy-theme-vivid-cursor t)
-  (load-theme 'tron-legacy t))
+  (load-theme 'modus-vivendi-tritanopia t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Global shortcuts                                                         ;;
