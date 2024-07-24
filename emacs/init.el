@@ -5,7 +5,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Name and email                                                           ;;
+;; Credentials                                                              ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq user-full-name    "Vasilii Ivanov")
 (setq user-mail-address "thebigglu@gmail.com")
@@ -112,8 +112,7 @@
   (setq vterm-always-compile-module t)
   (setq vterm-kill-buffer-on-exit t)
   (setq vterm-max-scrollback 100000)
-  (setq vterm-timer-delay 0.01)
-  :bind ("C-c r" . vterm-copy-mode))
+  (setq vterm-timer-delay 0.01))
 
 (use-package multi-vterm
   :ensure t
