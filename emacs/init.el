@@ -153,12 +153,6 @@
   :init (global-flycheck-mode)
   :hook (flycheck-mode . use-eslint-from-node-modules))
 
-(use-package flycheck-eglot
-  :ensure t
-  :after (flycheck eglot)
-  :config
-  (global-flycheck-eglot-mode 1))
-
 (use-package typescript-mode :ensure t)
 (use-package yaml-mode :ensure t)
 (use-package json-mode :ensure t)
