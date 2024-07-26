@@ -56,6 +56,17 @@
 ;; disable js-find-symbol because the eglot
 (global-set-key [remap js-find-symbol] 'xref-find-definitions)
 
+;; new line above/below of the cursor
+(global-set-key (kbd "<C-return>") (lambda ()
+  (interactive)
+  (end-of-line)
+  (newline-and-indent)))
+(global-set-key (kbd "<S-return>") (lambda ()
+  (interactive)
+  (previous-line)
+  (end-of-line)
+  (newline-and-indent)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Editing                                                                  ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -80,17 +91,6 @@
 (electric-pair-mode t)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; new line above/below of the cursor
-(global-set-key (kbd "<C-return>") (lambda ()
-  (interactive)
-  (end-of-line)
-  (newline-and-indent)))
-(global-set-key (kbd "<S-return>") (lambda ()
-  (interactive)
-  (previous-line)
-  (end-of-line)
-  (newline-and-indent)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Search                                                                   ;;
