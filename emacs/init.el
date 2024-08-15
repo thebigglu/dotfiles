@@ -35,6 +35,7 @@
 (setq isearch-lazy-count t)
 (setq column-number-mode t)
 (setq next-screen-context-lines 15)
+(setq dired-kill-when-opening-new-dired-buffer t)
 
 (use-package tron-legacy-theme
   :ensure t
@@ -91,14 +92,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Search                                                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-create-new-buffer 'always)
+(setq-default confirm-nonexistent-file-or-buffer nil)
+
 (use-package helm
   :ensure t
   :init (helm-mode t)
   :demand
   :bind
   ("M-x" . helm-M-x)
-  ("C-x r b" . helm-filtered-bookmarks)
-  ("C-x C-f" . helm-find-files))
+  ("C-x r b" . helm-filtered-bookmarks))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Terminal                                                                 ;;
