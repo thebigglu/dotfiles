@@ -70,6 +70,7 @@
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq-default js-indent-level tab-width)
+(setq-default typescript-indent-level tab-width)
 (setq-default electric-indent-inhibit t)
 (setq backward-delete-char-untabify-method 'hungry)
 
