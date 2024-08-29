@@ -27,7 +27,7 @@
 (set-default 'truncate-lines t)
 (add-to-list 'default-frame-alist '(undecorated . t))
 (add-to-list 'default-frame-alist '(internal-border-width . 7))
-(add-to-list 'default-frame-alist '(font . "Hack 13"))
+(add-to-list 'default-frame-alist '(font . "Input Mono 13"))
 (setq use-dialog-box nil)
 (setq ring-bell-function 'ignore)
 (setq inhibit-splash-screen t)
