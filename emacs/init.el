@@ -173,7 +173,8 @@
 
 (use-package blamer
   :ensure t
-  :bind (("C-c b" . blamer-show-posframe-commit-info))
+  :bind (("C-c b b" . global-blamer-mode)
+         ("C-c b m" . blamer-show-posframe-commit-info))
   :custom
   (blamer-idle-time 0.3)
   (blamer-min-offset 30)
