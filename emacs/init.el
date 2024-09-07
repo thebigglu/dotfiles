@@ -37,11 +37,11 @@
 (setq next-screen-context-lines 15)
 (setq dired-kill-when-opening-new-dired-buffer t)
 
-(use-package color-theme-sanityinc-tomorrow
+(use-package tron-legacy-theme
   :ensure t
   :config
-  (load-theme 'sanityinc-tomorrow-bright t)
-  (set-face-attribute 'fringe nil :background nil))
+  (setq tron-legacy-theme-vivid-cursor t)
+  (load-theme 'tron-legacy t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; System                                                                   ;;
