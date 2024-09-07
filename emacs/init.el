@@ -170,3 +170,13 @@
 ;; VCS                                                                      ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package magit :ensure t)
+
+(use-package blamer
+  :ensure t
+  :bind (("C-c b" . blamer-show-posframe-commit-info))
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 30)
+  :custom-face
+  (blamer-face ((t :foreground "#5a7387"
+                   :italic t))))
