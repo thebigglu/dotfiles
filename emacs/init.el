@@ -37,11 +37,14 @@
 (setq next-screen-context-lines 15)
 (setq dired-kill-when-opening-new-dired-buffer t)
 
-(use-package tron-legacy-theme
+(use-package doom-themes
   :ensure t
+  :custom
+  (doom-themes-enable-bold t)
+  (doom-themes-enable-italic t)
   :config
-  (setq tron-legacy-theme-vivid-cursor t)
-  (load-theme 'tron-legacy t))
+  (load-theme 'doom-1337 t)
+  (doom-themes-org-config))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; System                                                                   ;;
