@@ -149,14 +149,6 @@
   (setq eglot-ignored-server-capabilities '(:hoverProvider :documentHighlightProvider))
   :hook ((js-mode typescript-mode) . eglot-ensure))
 
-(use-package tree-sitter
-  :ensure t
-  :config
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
-(use-package tree-sitter-langs :ensure t)
-
 (defun use-eslint-from-node-modules ()
   (let* ((root (locate-dominating-file (or (buffer-file-name) default-directory) "node_modules"))
     (eslint (and root (expand-file-name "node_modules/.bin/eslint" root))))
